@@ -1,0 +1,34 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Friends</h1>
+
+<div class="table-responsive">
+<table class="table table-hover table-borderless table-responsive">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col" >First Name</th>
+      <th>Last Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+<tbody class="table-group-divider">
+  <% @friends.each do |friend| %>
+    <tr>
+      <td> <%= friend.first_name %></td>
+      <td> <%= friend.last_name %></td>
+      <td> <%= friend.email %></td>
+      <td> <%= friend.phone %></td>
+      <td>
+      <%= link_to "Show", friend, class:"btn btn-outline-success" %>
+      <%= link_to "Edit", friend, method: :put, class:"btn btn-outline-info" %>
+      <%= link_to 'Delete', friend, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger" %>
+      </td>
+    </tr>
+  <% end %>
+  <tbody>
+</table>
+</div>
+
+<%= link_to "New friend", new_friend_path, class:"btn btn-outline-primary" %>

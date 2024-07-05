@@ -1,0 +1,24 @@
+<div class="card text-center mb-3 mt-3">
+  <div class="card-header">
+    <ul class="nav nav-pills card-header-pills gap-2">
+      <li class="nav-item">
+        <%= link_to "Edit this friend", edit_friend_path(@friend), class:"btn btn-outline-info" %> 
+      </li>
+      <li class="nav-item">
+        <%= button_to "Destroy this friend", @friend, method: :delete, class:"btn btn-outline-danger btn-md" %>
+      </li>
+    </ul>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title"><%= @friend.first_name %></h5>
+      <h6 class="card-subtitle mb-2 text-body-secondary"><%= @friend.last_name %></h6>
+      <p class="card-text"></p>
+      <a class="card-link"><%= @friend.email %></a>
+      <a class="card-link"><%= @friend.phone %></a>
+      <div>
+      </div>
+    </div>
+  </div>
+</div>
+  <%= link_to "Back to friends", friends_path, class:"btn btn-outline-primary" %>

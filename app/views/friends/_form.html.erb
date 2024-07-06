@@ -3,7 +3,7 @@
     <div style="color: red">
       <h2><%= pluralize(friend.errors.count, "error") %> prohibited this friend from being saved:</h2>
 
-      <ul>
+      <ul,class:"btn btn-outline-primary">
         <% friend.errors.each do |error| %>
           <li><%= error.full_message %></li>
         <% end %>
@@ -11,27 +11,34 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :first_name, style: "display: block" %>
-    <%= form.text_field :first_name %>
+  <div class="input-group mb-3">
+    <span class="input-group-text">First and last name</span>
+    <div>
+      <%= form.text_field :first_name, class:"form-control"%>
+    </div>
+
+    <div>
+      <%= form.text_field :last_name, class: "form-control"%>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :last_name, style: "display: block" %>
-    <%= form.text_field :last_name %>
+  <div class="input-group mb-3">
+    <span class="input-group-text">Email</span>
+    <div>
+      <%= form.text_field :email, class:"form-control" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :email, style: "display: block" %>
-    <%= form.text_field :email %>
+  <div class="input-group mb-3">
+    <span class="input-group-text">Phone</span>
+    <div>
+      <%= form.text_field :phone, class:"form-control" %>
+    </div>
   </div>
 
-  <div>
-    <%= form.label :phone, style: "display: block" %>
-    <%= form.text_field :phone %>
-  </div>
+  <%= form.number_field :user_id, id: :friend_user_id, class:"form-control" , value:current_user.id, type:"hidden" %>
 
   <div>
-    <%= form.submit %>
+    <%= form.submit class:"btn btn-outline-success" %>
   </div>
 <% end %>
